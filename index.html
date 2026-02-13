@@ -1,265 +1,248 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will you be my Valentine?</title>
-    <meta name="description" content="I have a special question for you... 🤫❤️ Click to see!">
-    <link rel="canonical" href="https://valrequest.net/will-you-be-my-valentine">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Preet 💗</title>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://valrequest.net/will-you-be-my-valentine">
-    <meta property="og:title" content="Will you be my Valentine? | ValRequest.net">
-    <meta property="og:description" content="I have a special question for you... 🤫❤️ Click to see!">
-    <meta property="og:image" content="https://valrequest.net/will-you-be-my-valentine-og-image.png">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://valrequest.net/will-you-be-my-valentine">
-    <meta property="twitter:title" content="Will you be my Valentine?">
-    <meta property="twitter:description" content="I have a special question for you... 🤫❤️ Click to see!">
-    <meta property="twitter:image" content="https://valrequest.net/will-you-be-my-valentine-og-image.png">
+<style>
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #ffe8cc);
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
 
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHC1BQ4X9Z"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-QHC1BQ4X9Z');
-    </script>
+.container {
+    margin-top: 8vh;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+}
 
-    <style>
-        /* --- Global Styles --- */
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            min-height: 100dvh;
-            position: relative;
-            background-color: #ffe6e6;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden; 
-        }
+h1 {
+    font-size: 26px;
+    color: #800020;
+}
 
-        .container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            max-width: 90%;
-            position: relative;
-            z-index: 10;
-        }
+.photo-wrapper {
+    margin: 20px 0 30px 0;
+}
 
-        .gif-container img {
-            width: 200px;
-            height: auto;
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
+.photo-wrapper img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
 
-        h1 {
-            color: #ff4d4d;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+button {
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    -webkit-tap-highlight-color: transparent;
+}
 
-        .btn {
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
+#yesBtn {
+    background-color: #ff4d6d;
+    color: white;
+    width: 200px;
+    height: 55px;
+    font-size: 16px;
+}
 
-        #yesBtn {
-            background-color: #2ecc71;
-            color: white;
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
-        }
-        #yesBtn:hover {
-            background-color: #27ae60;
-            transform: scale(1.05);
-        }
+#noBtn {
+    background-color: #ff8fa3;
+    color: white;
+    width: 200px;
+    height: 55px;
+    font-size: 16px;
+}
 
-        #noBtn {
-            background-color: #e74c3c;
-            color: white;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
-        }
-        #noBtn:hover {
-            background-color: #c0392b;
-        }
+#finalMessage {
+    display: none;
+    margin-top: 40px;
+    font-size: 20px;
+    color: #800020;
+    animation: fadeIn 0.6s ease-in-out;
+}
 
-        #success-container {
-            display: none;
-            text-align: center;
-        }
-        #success-container h1 {
-            font-size: 3rem;
-            color: #ff6b81;
-        }
+.teaseMessage {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #b03060;
+}
 
-        .heart {
-            position: absolute;
-            color: #ff9999;
-            opacity: 0.6;
-            animation: float 6s linear infinite;
-            z-index: 1;
-        }
-        @keyframes float {
-            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
-        }
-        /* --- Branding Footer Styles --- */
-        .footer {
-            position: absolute; 
-            bottom: 10px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            z-index: 5;
-            font-size: 12px;
-            color: rgba(255, 77, 77, 0.6);
-            pointer-events: auto;
-            padding-bottom: 10px;
-        }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        .footer a {
-            color: #ff4d4d;
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.3s;
-        }
+/* Floating Hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp linear forwards;
+    z-index: 1;
+}
 
-        .footer a:hover {
-            opacity: 1; /* 鼠标悬停时变清晰 */
-            text-decoration: underline;
-        }
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
 
-        .footer p {
-            margin: 2px 0 0 0;
-            font-size: 10px;
-            color: rgba(0, 0, 0, 0.3); /* 标语用更浅的灰色，显得高级 */
-            letter-spacing: 1px;
-        }
-    </style>
+/* Popup */
+#popupOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+#popupBox {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 300px;
+    font-size: 18px;
+    color: #800020;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+</style>
 </head>
+
 <body>
 
-    <div id="hearts-bg"></div>
+<div class="container">
+    <h1>Preet… 💗<br>Will you be my Valentine?</h1>
 
-    <!-- Question Section -->
-    <div class="container" id="question-container">
-        <div class="gif-container">
-            <img src="/imgs/valentine/my-lover.gif" alt="Cute Bear" id="mainImage">
-        </div>
-        <h1 id="questionText">Will you be my Valentine?</h1>
-        <div class="buttons">
-            <button class="btn" id="yesBtn">Yes</button>
-            <button class="btn" id="noBtn">No</button>
-        </div>
+    <div class="photo-wrapper">
+        <img src="images/us.jpg" alt="Us Together">
     </div>
 
-    <!-- Success Section -->
-    <div class="container" id="success-container">
-        <div class="gif-container">
-            <img src="/imgs/valentine/bubududu-panda.gif" alt="Kisses">
-        </div>
-        <h1>YAY!!! I love you! ❤️</h1>
-        <p style="font-size: 1.2rem; color: #666;">(I knew you would say yes!)</p>
-    </div>
-    <!-- Branding Footer -->
-    <div class="footer">
-
+    <div class="button-wrapper">
+        <button id="yesBtn">Yes, always 💌</button>
+        <button id="noBtn">I’m not sure 🥺</button>
     </div>
 
-    <script>
-        const yesBtn = document.getElementById('yesBtn');
-        const noBtn = document.getElementById('noBtn');
-        const questionText = document.getElementById('questionText');
-        const mainImage = document.getElementById('mainImage');
-        const questionContainer = document.getElementById('question-container');
-        const successContainer = document.getElementById('success-container');
+    <div class="teaseMessage" id="teaseText"></div>
 
-        // English Texts for the No Button
-        const noTexts = [
-            "Are you sure?", 
-            "Think again!", 
-            "Really?", 
-            "I'll be so sad...", 
-            "Please don't do this...", 
-            "Give me a chance!", 
-            "I'm gonna cry...", 
-            "Pretty please?", 
-            "Stop clicking No!",
-            "Just say Yes!"
-        ];
+    <div id="finalMessage">
+        I knew it. 🤍<br><br>
+        No matter where life takes us,<br>
+        I just want you beside me.<br><br>
+        Thank you for being mine.<br>
+        Happy Valentine’s Day, Preet. 💗
+    </div>
+</div>
 
-        let clickCount = 0;
+<!-- Popup -->
+<div id="popupOverlay">
+    <div id="popupBox">
+        Enough!! Stop Acting so Pricey Now and be mine please 😘
+    </div>
+</div>
 
-        noBtn.addEventListener('click', () => {
-            clickCount++;
-            
-            // Change Text
-            const textIndex = Math.min(clickCount - 1, noTexts.length - 1);
-            noBtn.innerText = noTexts[textIndex];
+<script>
+let yesWidth = 200, yesHeight = 55, yesFont = 16;
+let noWidth = 200, noHeight = 55, noFont = 16;
 
-            // Make Yes Button Bigger
-            const currentSize = 16 + (clickCount * 10);
-            yesBtn.style.fontSize = `${currentSize}px`;
-            const currentPadding = 15 + (clickCount * 5);
-            yesBtn.style.padding = `${currentPadding}px ${currentPadding * 2}px`;
+let noClickCount = 0;
+let noWasClicked = false;
 
-            // Change Image based on click count
-            if (clickCount === 1) {
-                mainImage.src = "/imgs/valentine/bubu-sad1.gif";
-            } else if (clickCount === 4) {
-                mainImage.src = "/imgs/valentine/bubu-sad2.gif";
-            }
-        });
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const finalMessage = document.getElementById("finalMessage");
+const popup = document.getElementById("popupOverlay");
+const popupBox = document.getElementById("popupBox");
 
-        yesBtn.addEventListener('click', () => {
-            questionContainer.style.display = 'none';
-            successContainer.style.display = 'block';
-            createHearts(50);
-        });
+// NO button logic
+noBtn.addEventListener("pointerdown", function() {
 
-        function createHearts(num) {
-            const bg = document.getElementById('hearts-bg');
-            for (let i = 0; i < num; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '❤';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
-                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-                bg.appendChild(heart);
-                setTimeout(() => { heart.remove(); }, 6000);
-            }
-        }
+    noWasClicked = true;
+    noClickCount++;
 
-        setInterval(() => { createHearts(2); }, 500);
-    </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"aade0526fcf04ab486d9ed9b60fa5d3f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+    if (noWidth > 70) {
+        yesWidth += 30;
+        yesHeight += 8;
+        yesFont += 2;
+
+        yesBtn.style.width = yesWidth + "px";
+        yesBtn.style.height = yesHeight + "px";
+        yesBtn.style.fontSize = yesFont + "px";
+
+        noWidth -= 25;
+        noHeight -= 6;
+        noFont -= 1;
+
+        noBtn.style.width = noWidth + "px";
+        noBtn.style.height = noHeight + "px";
+        noBtn.style.fontSize = noFont + "px";
+    }
+
+    if (noClickCount === 4) {
+        popupBox.innerHTML = "Enough!! Stop Acting so Pricey Now and be mine please 😘";
+        popup.style.display = "flex";
+    }
+});
+
+// YES button logic
+yesBtn.addEventListener("pointerdown", function() {
+
+    if (!noWasClicked) {
+        popupBox.innerHTML = "What's the rush, maybe try acting pricey and choose the other option first :p";
+        popup.style.display = "flex";
+        return;
+    }
+
+    finalMessage.style.display = "block";
+});
+
+// Close popup when tapping anywhere
+popup.addEventListener("pointerdown", function() {
+    popup.style.display = "none";
+});
+
+// Floating hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 15 + 15) + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+
 </body>
 </html>
-
